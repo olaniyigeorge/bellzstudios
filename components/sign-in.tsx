@@ -1,15 +1,31 @@
+"use client"
 import { auth, signIn, signOut } from "@/services/auth"
 import Image from "next/image"
-export default async function Auth() {
-  const session = await auth() 
-  // console.log(session)
-  const user = session?.user
+import { useEffect } from "react"
+import { useUser } from "@/services/stores.user"
+import { handleSignOut } from "@/app/auth/action"
+
+export default function Auth() {
+  const { user, setUser, clearData } = useUser()
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const session = await auth()
+      if (session?.user){
+        console.log("setting user...")
+        setUser(session.user)
+      }
+    }
+    fetchUser()
+  }, [setUser])
+
   return user ? 
     (
       <form
         action={async () => {
           "use server"
           await signOut()
+          clearData()
         }}
       >
         <button className="outline_btn" 
@@ -22,6 +38,11 @@ export default async function Auth() {
         action={async () => {
           "use server"
           await signIn("google")
+          const session = await auth()
+          console.log("setting user...")
+          if (session?.user){
+            setUser(session?.user)
+          }
         }}
       >
         <button className="black_btn flex gap-2" 
@@ -38,5 +59,9 @@ export default async function Auth() {
           <>Sign in with Google</>
           </button>
       </form>
-      )
-} 
+    )
+}
+
+
+
+

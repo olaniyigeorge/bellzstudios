@@ -6,6 +6,7 @@
     import { FormEvent, useState } from "react";
     import { toast } from "react-toastify";
     import { TwitterTweetEmbed } from "react-twitter-embed";
+import NoteEntryCard from "./note-entry-card";
 
 
     interface DevStoryPageProps {
@@ -52,6 +53,10 @@
             }
         }
 
+
+        function handleTagClick(tag: string): void {
+            throw new Error("Function not implemented.");
+        }
 
         return (
             <div className="font-irishgrover flex flex-col gap-2 md:gap-4 container px-2 md:px-8 lg:px-16 mx-auto">
@@ -114,8 +119,22 @@
                         <span className="orange-gradient">{" "}{story.title}</span> 
                     </h1>
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8 p-2">
-                        {story.inspirations.map((tweet: Inspiration) => (
-                            <TwitterTweetEmbed key={tweet.tweetId} tweetId={tweet.tweetId} />
+                        {story.inspirations.map((inspiration: Inspiration, index) => (
+                            <div key={index}>
+                                {inspiration.tweetId && !inspiration.note && (
+                                    <TwitterTweetEmbed 
+                                        tweetId={inspiration.tweetId}
+                                    />
+                                )}
+                                {inspiration.note && (
+                                    <NoteEntryCard
+                                        post={inspiration.note}
+                                        handleTagClick={handleTagClick}
+                                        handleEdit={() => console.log("Edit", inspiration!.note!._id)} // Replace with actual edit logic
+                                        handleDelete={() => console.log("Delete", inspiration!.note!._id)} // Replace with actual delete logic
+                                    />
+                                )}
+                            </div>
                         ))}
                     </div>
                 </section>

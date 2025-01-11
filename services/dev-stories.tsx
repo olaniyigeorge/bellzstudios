@@ -3,7 +3,8 @@ import { iDevStory } from "@/components/dev-story-card"
 export const DISCOVERY_LOCATION: string[] = [
     'telegram_bot',
     'twitter',
-    'friends_family'
+    'friends_family',
+    'linkedin'
 ]
 export const DEV_STORIES: iDevStory[] = [
     {
@@ -15,9 +16,35 @@ export const DEV_STORIES: iDevStory[] = [
         product_url: "/i/lockedin", // "https://lockedin_api.com https://lockedin-api.onrender.com",
         status: "live",
         inspirations: [
-            { tweetId: "1844763363533820066" },
-            { tweetId: "1844778183024889857" },
-            { tweetId: "1845054193783984432" },
+            {
+                tweetId: "1844763363533820066",
+                note: undefined
+            },
+            {
+                tweetId: "1844778183024889857",
+                note: undefined
+            },
+            {
+                tweetId: "1845054193783984432",
+                note: undefined
+            },
+            {
+                tweetId: null,
+                note:     {
+                    _id: "6",
+                    author: {
+                      _id: "user4",
+                      username: "olaniyigeorge",
+                      email: "olaniyigeorge77@gamil.com",
+                      image: "https://lh3.googleusercontent.com/a/ACg8ocKMGmRvm7nzT-dv4uGOduWFj6GCFfy3H7MZFcfSxGgaZwtHD8hR=s96-c"
+                    },
+                    title: "Clean Typescript Code",
+                    body: "I should refactor my code as a part of a new habit task to write clean code.",
+                    tags: ["clean-code", "refactor", "habit"],
+                    privacy_level: "public",
+                    written_at: new Date("2025-01-11T03:55:00Z")
+                  },
+            },
         ],
         image: "/assets/images/lockedin.png"
     },

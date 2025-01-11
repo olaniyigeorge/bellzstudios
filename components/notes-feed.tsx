@@ -167,5 +167,21 @@
       tags: ["team-building", "activities", "work"],
       privacy_level: "public",
       written_at: new Date("2025-01-06T16:30:00Z")
-    }
+    },
+
+    
+    {
+      _id: "5",
+      author: {
+        _id: "user4",
+        username: "dana_04",
+        email: "dana@example.com",
+        image: "https://lh3.googleusercontent.com/a/ACg8ocKMGmRvm7nzT-dv4uGOduWFj6GCFfy3H7MZFcfSxGgaZwtHD8hR=s96-c"
+      },
+      title: "Clean Code",
+      body: "I should refactor my code as a part of a new habit task to write clean code.",
+      tags: ["clean-code", "refactor", "habit"],
+      privacy_level: "public",
+      written_at: new Date("2025-01-11T00:30:00Z")
+    },
   ];

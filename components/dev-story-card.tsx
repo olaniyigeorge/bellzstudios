@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { iNoteEntry } from "./note-entry-card";
 // import Image from "next/image"
 
 export type Inspiration = {
-    tweetId: string;
+    tweetId: string | null
+    note: iNoteEntry;
 };
 export interface iDevStory{
     id: string;
