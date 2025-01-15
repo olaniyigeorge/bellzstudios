@@ -1,6 +1,6 @@
 "use server"
 
-import { auth } from "@/services/auth";
+import { auth, signIn, signOut } from "@/services/auth";
 import { useUser } from "@/services/stores.user";
 
 
@@ -15,14 +15,23 @@ export async function getSession() {
 
 
 
-export async function signIn(provider: string) {
+export async function handleSignIn(provider: string) {
     await signIn(provider)
 
     const session = await auth()
 
     const { setUser } = useUser.getState();
-    if (session?.user.id) setUser(session.user);
+    if (session?.user?.id) setUser(session.user);
     
     return session
+}
+
+
+
+export async function handleSignOut() {
+    await signOut()
+
+    const { clearData } = useUser.getState();
+    clearData()
 }
 

@@ -22,13 +22,13 @@ export default function Header() {
                     className="font-extrabold  flex gap-2 items-center text-purple-600 text-3xl">
                     <Image
                         src="/assets/images/bellzstudio.png"
-                        className="object-contain rounded-full"
+                        className="object-contain rounded-full shadow shadow-orange-900 p-1"
                         height={40}
                         width={40}
                         priority={true}
                         alt="product-link"
                     /> 
-                    <h1 className="text-sm hidden tracking-tighter font-irishgrover font-extrabold uppercase md:flex text-white ">Bellz Studio</h1>
+                    <h1 className="text-sm hidden tracking-tighter font-irishgrover font-extrabold md:flex text-white ">Bellz Studio</h1>
                 </Link>
                 <span className="font-medium flex justify-end items-center gap-2">
                     {

@@ -11,11 +11,11 @@ export interface User {
 interface UserState {
     user: User | null;
     setUser: (user: User) => void;
-    logout: () => void;
+    clearData: () => void;
 }
 
 export const useUser = create<UserState>((set) => ({
     user: null,
     setUser: (user: User) => set({ user }),
-    logout: () => set({ user: null })
+    clearData: () => set({ user: null })
 }))

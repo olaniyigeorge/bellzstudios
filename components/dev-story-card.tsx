@@ -4,7 +4,7 @@ import { iNoteEntry } from "./note-entry-card";
 
 export type Inspiration = {
     tweetId: string | null
-    note: iNoteEntry;
+    note?: iNoteEntry;
 };
 export interface iDevStory{
     id: string;
