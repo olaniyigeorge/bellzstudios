@@ -23,7 +23,7 @@ export default function Auth() {
     (
       <form
         action={async () => {
-          "use server"
+          // "use server"
           await signOut()
           clearData()
         }}
@@ -36,7 +36,7 @@ export default function Auth() {
     (
       <form
         action={async () => {
-          "use server"
+          // "use server"
           await signIn("google")
           const session = await auth()
           console.log("setting user...")
